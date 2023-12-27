@@ -7,5 +7,5 @@ import (
 )
 
 func SetupRoutes() {
-	http.HandleFunc("/", handlers.GetPostDetails)
+	http.HandleFunc("/postdetails", handlers.GetPostDetails)
 }
