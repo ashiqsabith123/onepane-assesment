@@ -53,8 +53,8 @@ func GetPostDetails(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	go helper.MakeResults(0, len(posts)/2, ch1, posts, comments, users)
-	go helper.MakeResults(len(posts)/2, len(posts), ch1, posts, comments, users)
+	go helper.MakeResults(ch1, posts[:len(posts)/2], comments, users)
+	go helper.MakeResults(ch1, posts[len(posts)/2:], comments, users)
 
 	<-ch1
 	<-ch1

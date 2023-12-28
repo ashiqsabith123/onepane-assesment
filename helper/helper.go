@@ -15,11 +15,11 @@ func GetResults() *[]models.Result {
 	return &results
 }
 
-func MakeResults(start, end int, ch chan struct{}, posts []models.Posts, comments []models.Comments, users []models.Users) {
+func MakeResults(ch chan struct{}, posts []models.Posts, comments []models.Comments, users []models.Users) {
 
 	wg := sync.WaitGroup{}
 
-	for i := start; i < end; i++ {
+	for i := 0; i < len(posts); i++ {
 
 		res := new(models.Result)
 		res.PostID = posts[i].ID
